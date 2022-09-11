@@ -29,7 +29,7 @@
     transition: height 0.5s ease-in-out;
     border-radius: 2px;
 }
-#randomize_array_btn{
+.buttons_container > button, select{
     background-color: #677685;
     height: 30px;
     width: 200px;
@@ -37,13 +37,5 @@
     font-weight: 200;
     border-radius: 5px;
     border: none;
-}
-#sort_btn{
-    background-color: #677685;
-    height: 30px;
-    width: 200px;
-    color: white;
-    font-weight: 200;
-    border-radius: 5px;
-    border: none;
+    text-align: center;
 }
