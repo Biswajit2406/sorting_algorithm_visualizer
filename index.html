@@ -18,17 +18,26 @@
             <h2 class="title">Sorting Visualization</h2>
             <div class="buttons_container">
                 <select name="" id="algo">
-                    <option value="bubble">Bubble Sort</option>
+                    <option value="bubble">Bubble Sort</option> 
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="heap">Heap Sort</option>
                 </select>
                 <button id="randomize_array_btn">Randomize Array</button>
                 <button id="sort_btn">Sort Array</button>
             </div>
         </div>
         <div class="bars_container" id="bars_container"></div>
-        <div class="range_container">
+        <div class="footer">
+            <div class="details">
+                Time Complexity: 
+                <div id="time"></div>
+            </div>
             <div class="range">Array Size
                 <input type="range" id="slider" min="10" max="50" step="5" value="30"/>
             </div>
+            
         </div>
     </div>
 
