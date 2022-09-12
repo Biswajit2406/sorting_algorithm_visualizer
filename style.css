@@ -44,6 +44,7 @@
 
 .title{
     font-weight: bold;
+    letter-spacing: 3px;
     color: #00ffff;
     position: absolute;
     left: 20px;
@@ -169,6 +170,7 @@ input[type=range] {
   .details{
     color: aliceblue;
     display: flex;
+    font-style: italic;
     position: absolute;
     font-size: 20px;
     left: 25px;
@@ -176,6 +178,7 @@ input[type=range] {
 
   #time{
     color: #99FF99;
+    font-style: italic;
     margin-left: 15px;
   }
 

@@ -90,7 +90,7 @@ async function bubbleSort(array) {
   return array;
 }
 
-async function InsertionSort(array) {
+async function insertionSort(array) {
   let bars = document.getElementsByClassName("bar");
   for (let i = 1; i < array.length; i++) {
     let key = array[i];
@@ -120,21 +120,81 @@ async function InsertionSort(array) {
   return array;
 }
 
+async function mergeSort(arr) {
+  let bars = document.getElementsByClassName("bar");
+  if (arr.length < 2) {
+    return arr;
+  }
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+  let actualHalf = await mergeSort(left);
+  await mergeSort(right);
+
+  let i = 0;
+  let j = 0;
+  let k = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      arr[k] = left[i];
+      i++;
+    } else {
+      arr[k] = right[j];
+      j++;
+    }
+    bars[k].style.height = arr[k] * heightFactor + "px";
+    bars[k].style.backgroundColor = "lightgreen";
+    if (k + arr.length < bars.length) {
+      bars[k + arr.length].style.height = arr[k] * heightFactor + "px";
+      bars[k + arr.length].style.backgroundColor = "red";
+    }
+    await sleep(speedFactor);
+
+    k++;
+  }
+
+  while (i < left.length) {
+    arr[k] = left[i];
+    bars[k].style.height = arr[k] * heightFactor + "px";
+    bars[k].style.backgroundColor = "lightgreen";
+    await sleep(speedFactor);
+    i++;
+    k++;
+  }
+
+  while (j < right.length) {
+    arr[k] = right[j];
+    bars[k].style.height = arr[k] * heightFactor + "px";
+    bars[k].style.backgroundColor = "lightgreen";
+    await sleep(speedFactor);
+    j++;
+    k++;
+  }
+  for (let k = 0; k < bars.length; k++) {
+    bars[k].style.backgroundColor = "#bb86fc";
+  }
+
+  return arr;
+}
+
+
 sort_btn.addEventListener("click", function () {
   switch (algotouse) {
     case "bubble":
       bubbleSort(unsorted_array);
-      time_complexity.innerHTML = 'O(n^2)';
+      time_complexity.innerHTML = 'O(N^2)';
       break;
     case "insertion":
-      InsertionSort(unsorted_array);
-      time_complexity.innerHTML = 'O(n)';
+      insertionSort(unsorted_array);
+      time_complexity.innerHTML = 'O(N^2)';
       break;
     case "quick":
       alert("Quick Sort Is Not Implemented Yet!!")
       break;
     case "merge":
-      alert("Merge Sort Is Not Implemented Yet!!")
+      mergeSort(unsorted_array);
+      time_complexity.innerHTML = 'O(N log(N))';
       break;
     case "heap":
       alert("Heap Sort Is Not Implemented Yet!!")
