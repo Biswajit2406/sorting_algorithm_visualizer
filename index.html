@@ -9,22 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Sortin Visualization</title>
+    <title>Sorting Visualization</title>
 </head>
 
 <body>
     <div class="container">
         <div class="navbar">
-            <h1 class="title">Sorting Visualization</h1>
+            <h2 class="title">Sorting Visualization</h2>
+            <div class="buttons_container">
+                <select name="" id="algo">
+                    <option value="bubble">Bubble Sort</option>
+                </select>
+                <button id="randomize_array_btn">Randomize Array</button>
+                <button id="sort_btn">Sort Array</button>
+            </div>
         </div>
         <div class="bars_container" id="bars_container"></div>
-        <div class="buttons_container">
-            <input type="range" id="slider" min="10" max="50" step="5" value="20" />
-            <select name="" id="algo">
-                <option value="bubble">Bubble Sort</option>
-            </select>
-            <button id="randomize_array_btn">Randomize Array</button>
-            <button id="sort_btn">Sort Array</button>
+        <div class="range_container">
+            <div class="range">Array Size
+                <input type="range" id="slider" min="10" max="50" step="5" value="30"/>
+            </div>
         </div>
     </div>
 
