@@ -178,3 +178,8 @@ input[type=range] {
     color: #99FF99;
     margin-left: 15px;
   }
+
+  #speed{
+    position: absolute;
+    right: 25px;
+  }

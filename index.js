@@ -4,7 +4,9 @@ let bars_container = document.getElementById("bars_container")
 let slider = document.getElementById("slider");
 let select_algo = document.getElementById("algo");
 let time_complexity = document.getElementById("time")
+let speed=document.getElementById("speed")
 let heightFactor = 8;
+let speedFactor=speed.value;
 let minRange = 1;
 let maxRange = slider.value;
 let numOfBars = slider.value;
@@ -17,7 +19,9 @@ slider.addEventListener("input", function () {
   unsorted_array = createRandomArray();
   renderBars(unsorted_array);
 });
-
+speed.addEventListener("change", function(){
+  speedFactor=speed.value
+})
 let algotouse = "";
 
 select_algo.addEventListener("change", function () {
@@ -78,10 +82,10 @@ async function bubbleSort(array) {
         bars[j].style.backgroundColor = "lightgreen";
         bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
         bars[j + 1].style.backgroundColor = "lightgreen";
-        await sleep(100);
+        await sleep(speedFactor);
       }
     }
-    await sleep(100);
+    await sleep(speedFactor);
   }
   return array;
 }
@@ -95,7 +99,7 @@ async function InsertionSort(array) {
       array[j + 1] = array[j];
       bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
       bars[j + 1].style.backgroundColor = "red";
-      await sleep(100);
+      await sleep(speedFactor);
 
       for (let k = 0; k < bars.length; k++) {
         if (k != j + 1) {
@@ -107,7 +111,7 @@ async function InsertionSort(array) {
     array[j + 1] = key;
     bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
     bars[j + 1].style.backgroundColor = "lightgreen";
-    await sleep(100);
+    await sleep(speedFactor);
   }
 
   for (let k = 0; k < bars.length; k++) {
